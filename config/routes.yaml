@@ -1,3 +1,9 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+# error:
+#   path: /error
+#   controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+#   defaults:
+#     templates: 'static/error.html.twig'
+    
