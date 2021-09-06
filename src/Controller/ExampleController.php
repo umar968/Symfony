@@ -16,8 +16,15 @@ class ExampleController extends AbstractController
      */
     public function number($number, Request $req): Response
     {
-
-        // return new Response($req->query->get('page'));
-        return $this->json(["name" => $req->query->get("name")]);
+        $response = new Response("Hello" . $number, Response::HTTP_OK);
+        return $response;
     }
+
+    // /**
+    //  * @Route("/file", name="file_controller")
+    //  */
+    //     public function file(): Response
+    //     {
+    //         // return $this->file('/home/umar/Desktop/Symfony Projects/SymfonyParactice/public/Generate_Certificate_1630829208046.pdf');
+    //     }
 }
