@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+    </head>
+    <body>
+    <h1>Hello this is twig template</h1>
+        <h4>{{number}}</h4>
+
+        {% for message in app.flashes('notice') %}
+            <div class="flash-notice">
+             {{ message }}
+             </div>
+    {% endfor %}
+    </body>
+</html>
