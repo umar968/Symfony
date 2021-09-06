@@ -8,15 +8,10 @@ class WifiController
 {
 
     //This is get
-    function list(): Response
+    function list($name): Response
     {
         return new Response(
-            '<html><body>Hello this is list of WifiController</body></html>'
+            '<html><body>Hello this is list of WifiController</body></html>' . $name
         );
-    }
-
-    function editList()
-    {
-        //this is POST
     }
 }

@@ -2,7 +2,7 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 wifi_list_show:
-    path: /wifi/list
+    path: /wifi/list/{name}
     controller: App\Controller\WifiController::list
     methods: GET|HEAD
-    condition:  "context.getMethod() in ['GET', 'HEAD'] and request.headers.get('User-Agent') matches '/firefox/i'"
+    

@@ -13,9 +13,7 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog/{id}", 
      * methods={"GET","HEAD"},
-     *  condition="context.getMethod() in ['GET', 'HEAD'] and request.headers.get('User-Agent') matches '/firefox/i'"
      * )
-     * 
      */
     public function show(int $id): Response
     {
