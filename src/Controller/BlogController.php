@@ -9,22 +9,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
 
-    //with get method
+    //This will only work for firefox
     /**
-     * @Route("/blog/{id}", methods={"GET","HEAD"})
+     * @Route("/blog/{id}", 
+     * methods={"GET","HEAD"},
+     *  condition="context.getMethod() in ['GET', 'HEAD'] and request.headers.get('User-Agent') matches '/firefox/i'"
+     * )
+     * 
      */
     public function show(int $id): Response
     {
         return new Response('<html><body>Hello This is BlogController show</body></body>' . $id);
-    }
-
-    // With post method
-    /**
-     * @Route("/blog/{id}", methods={"POST"})
-     */
-    public function edit(int $id)
-    {
-
-        echo "This is edit";
     }
 }

@@ -5,8 +5,4 @@ wifi_list_show:
     path: /wifi/list
     controller: App\Controller\WifiController::list
     methods: GET|HEAD
-    
-wifi_list_edit:
-    path: /wifi/list
-    controller: App\Controller\WifiController::editlist
-    methods: POST
+    condition:  "context.getMethod() in ['GET', 'HEAD'] and request.headers.get('User-Agent') matches '/firefox/i'"
