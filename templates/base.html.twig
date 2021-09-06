@@ -2,16 +2,23 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Welcome to twig</title>
-  
+        <title>{% block title %}My Application{% endblock %}</title>
+        
     </head>
     <body>
-     {{ include("welcome.html.twig",{user_name:"Muhammad Umar"}) }}
-        <h2>{{user_name[0]}}</h2>
+        {% block body %}
+            <div id="sidebar">
+                {% block sidebar %}
+                    <ul>
+                        {# <li><a href="{{ path('homepage') }}">Home</a></li> #}
+                        <li><a href="{{ path('blog_index') }}">Blog</a></li>
+                    </ul>
+                {% endblock %}
+            </div>
 
-        <p>{{path('twig',{id:34})}}</p>
-        <p>{{url('twig',{id:34})}}</p>
-        <img src="{{asset('conflict.png')}}" alt="check"/>
-        <p>{% dump app.flashes("noti") %}</p>
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>
+        {% endblock %}
     </body>
 </html>
