@@ -8,15 +8,20 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
-
-    //This will only work for firefox
+    //Parameter validation
     /**
-     * @Route("/blog/{id}", 
-     * methods={"GET","HEAD"},
-     * )
+     * @Route("/blog/{id}", name="blog_list", requirements={"id"="\d+"})
      */
-    public function show(int $id): Response
+    public function list(int $id): Response
     {
-        return new Response('<html><body>Hello This is BlogController show</body></body>' . $id);
+        return new Response('<html><body>This will render when we pass number<body><html>' . $id);
+    }
+
+    /**
+     * @Route("/blog/{title}", name="blog_show")
+     */
+    public function show(string $title): Response
+    {
+        return new Response('<html><body>This will render when we pass string<body><html>' . $title);
     }
 }
