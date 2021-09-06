@@ -1,6 +1,3 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
 wifi_list_show:
     path: /wifi/list/{name}
     controller: App\Controller\WifiController::list

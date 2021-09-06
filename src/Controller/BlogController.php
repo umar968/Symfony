@@ -8,12 +8,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
-    //Parameter validation
+
     /**
      * @Route("/blog/{id}", name="blog_list", requirements={"id"="\d+"})
      */
     public function list(int $id): Response
     {
+
         return new Response('<html><body>This will render when we pass number<body><html>' . $id);
     }
 
@@ -22,6 +23,7 @@ class BlogController extends AbstractController
      */
     public function show(string $title): Response
     {
+
         return new Response('<html><body>This will render when we pass string<body><html>' . $title);
     }
 }
