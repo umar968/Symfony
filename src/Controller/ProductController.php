@@ -19,7 +19,7 @@ class ProductController
             return new Response("Email has been send");
         } else {
 
-            return new Response("Sorry Email cant be send");
+            return new Response("Sorry Email cannot be send");
         }
     }
 }
