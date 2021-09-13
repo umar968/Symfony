@@ -8,6 +8,7 @@ class Author
 {
     /**
      * @Assert\NotBlank
+     * @Assert\length(min=3)
      */
     private $name;
 
