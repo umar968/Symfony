@@ -2,8 +2,16 @@
 
 namespace App\Service;
 
+use Psr\Log\LoggerInterface;
+
 class MessageGenerator
 {
+    private $logger;
+
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
 
     public function getHappyMessage(): string
     {
@@ -13,6 +21,7 @@ class MessageGenerator
             'This is just a masterpiece'
         ];
         $index = array_rand($message);
+        $this->logger->info($message[$index]);
 
         return $message[$index];
     }

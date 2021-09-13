@@ -2,19 +2,24 @@
 
 namespace App\Controller;
 
-use App\Service\MessageGenerator;
+use App\Service\SiteUpdateManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController
 {
+
     /**
      * @Route("/msg",name="message_service")
      */
-    public function list(MessageGenerator $messageGenerator): Response
+    public function list(SiteUpdateManager $siteUpdateManager): Response
     {
-        $message = $messageGenerator->getHappyMessage();
+        if ($siteUpdateManager->notifyOfSiteUpdate()) {
 
-        return new Response($message);
+            return new Response("Email has been send");
+        } else {
+
+            return new Response("Sorry Email cant be send");
+        }
     }
 }
